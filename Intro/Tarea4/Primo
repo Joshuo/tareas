@@ -1,0 +1,20 @@
+def listaprimo(lista):
+    if isinstance(lista, list):
+        return listaprimo_aux(lista, lista[0] + 1)
+    else:
+        return "Error: el valor ingresado no es una lista."
+
+def listaprimo_aux(lista, contador):
+    if lista == []:
+        return 0
+    else:
+        if (lista[0] == 0 or lista[0] == 1 or lista[0] == 2 or lista[0] == 3):
+            return [lista[0]] + listaprimo_aux(lista[1:], contador)
+        else:
+            if (contador == 1):
+                return [lista[0]] + listaprimo_aux(lista[1:], contador)
+            else:
+                if(lista[0] % contador == 0):
+                    return listaprimo_aux(lista[1:], contador)
+                else:
+                    return listaprimo_aux(lista[1:], contador + 1)

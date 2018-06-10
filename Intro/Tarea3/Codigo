@@ -1,0 +1,42 @@
+"""Hacer una funcion que encuentre el valor minimo en una lista"""
+
+def minimo(lista):
+    if isinstance(lista, list):
+        return  minimo_aux(lista), maximo_aux(lista)
+    else:
+        return "Error: el valor ingresado no es una lista."
+
+def minimo_aux(lista):
+    if len(lista) == 1:
+        return lista[0]
+    else:
+        if lista[0]<lista[1]:
+            return minimo_aux([lista[0]]+lista[2:])
+        else:
+            return minimo_aux(lista[1:])
+
+def maximo_aux(lista):
+    if len(lista) == 1:
+        return lista[0]
+    else:
+        if lista[0]>lista[1]:
+            return maximo_aux([lista[0]]+lista[2:])
+        else:
+            return maximo_aux(lista[1:])
+
+
+"""Sume la raiz cuadrada de los valores de una lista."""
+
+import math
+
+def raiz(lista):
+    if isinstance(lista, list):
+        return  raiz_aux(lista)
+    else:
+        return "Error: el valor ingresado no es una lista."
+
+def raiz_aux(lista):
+    if lista == []:
+        return 0
+    else:
+        return math.sqrt(lista[0]) + raiz_aux(lista[1:])

@@ -1,0 +1,31 @@
+"""Sume todos los valores de una lista."""
+
+def suma(lista):
+    #if type(lista) == list
+    if isinstance(lista, list):
+        return  suma_aux(lista)
+    else:
+        return "Error: el valor ingresado no es una lista."
+
+def suma_aux(lista):
+    if lista == []:
+        return 0
+    else:
+        return lista[0] + suma_aux(lista[1:])
+
+"""Sume todos los valores pares de una lista."""
+
+def sumapar(lista):
+    if isinstance(lista,list):
+        return sumapar_aux(lista)
+    else:
+        return "Error: el valor ingresado no es una lista."
+
+def sumapar_aux(lista):
+    if lista == []:
+        return 0
+    else:
+        if lista[0]%2 == 0:
+            return lista[0] + sumapar_aux(lista[1:])
+        else:
+            return sumapar_aux(lista[1:])

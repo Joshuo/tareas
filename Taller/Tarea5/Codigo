@@ -1,0 +1,31 @@
+def cero(lista):
+    if isinstance(lista, list):
+        return cero_aux(lista)
+    else:
+        return "Error: el valor ingresado no es una lista."
+
+def cero_aux(lista):
+    if lista == []:
+        return False
+    else:
+        if lista[0] == 0:
+            return True
+        else:
+            return cero_aux(lista[1:])
+
+
+
+def descarte(lista, num):
+    if isinstance(lista, list):
+        return descarte_aux(lista, num)
+    else:
+        return "Error: el valor ingresado no es una lista." 
+
+def descarte_aux(lista, num):
+    if lista == []:
+        return []
+    else:
+        if lista [0] == num:
+            return descarte_aux(lista[1:], num)
+        else:
+            return [lista[0]] + descarte_aux(lista[1:], num)

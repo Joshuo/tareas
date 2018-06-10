@@ -1,0 +1,27 @@
+def binario(num):
+    if isinstance(num, int):
+        return binario_aux(num, 0)
+    else:
+        return "Error"
+
+def binario_aux(num, pot):
+    if num == 0:
+        return 0
+    else:
+        if (num%2 == 1):
+            return 1*(10**pot) + binario_aux(num//2, pot + 1)
+        else:
+            return 0*(10**pot) + binario_aux(num//2, pot + 1)
+
+
+def decimal(num):
+    if isinstance(num, int):
+        return decimal_aux(num, 0)
+    else:
+        return "Error"
+
+def decimal_aux(num, pot):
+    if num == 0:
+        return 0
+    else:
+        return ((num%10)*(2**pot)) + decimal_aux(num // 10, pot + 1)
